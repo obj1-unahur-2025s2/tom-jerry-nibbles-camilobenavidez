@@ -1,0 +1,40 @@
+import tomyjerryNibbles.*
+
+describe "casos de uso: parte 1"{
+test "Al inicio la velocidad maxima de tom es 10(su energia es 50)"{
+    assert.equals(10, tom.velocidadMaxima())
+}
+test "si tom se come a jerry, la velocidad maxima pasa a 15.2 (su energia es 102)"{
+    tom.comer(jerry)
+    assert.equals(15.2, tom.velocidadMaxima())
+}
+test "si corre 24 metros, entonces su velocidad maxima pasa a ser 14 (su energia es 90)"{
+    tom.comer(jerry)
+    tom.correr(24)
+    assert.equals(14, tom.velocidadMaxima())
+}
+test "si come a nibbles, pasa a tener velocidad maxima 18.7 (su energia es 137)"{
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    assert.equals(18.7, tom.velocidadMaxima())
+}
+test "si jerry cumple años(3 años de edad), y luego tom lo vuelve a comer, pasaria a tener 25.9 (su energia es 209)"{
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    jerry.cumplirAños()
+    tom.comer(jerry)
+    assert.equals(25.9, tom.velocidadMaxima())
+}
+test "si corre 38 metros su velocidad pasa a ser 24(su energia es 190)"{
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    jerry.cumplirAños()
+    tom.comer(jerry)
+    tom.correr(38)
+    assert.equals(24, tom.velocidadMaxima())
+    assert.equals(190, tom.energia())
+}
+}
